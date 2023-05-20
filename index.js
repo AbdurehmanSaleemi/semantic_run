@@ -6,7 +6,7 @@ import { runBot } from "./chat.js";
 const app = express();
 app.use(cors());
 app.use(express.json());
-const port = 3000;
+const port = 3000 || process.env.PORT;
 
 //console.log(output);
 //const prompt = await run();
@@ -24,5 +24,5 @@ app.post("/fetch_result", (req, res) => {
 });
 
 app.listen(port, () => {
-    console.log(`Example app listening at http://localhost:${port}`);
+    console.log(`Example app listening at ${port}`);
 });
