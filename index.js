@@ -1,6 +1,6 @@
 import express from "express";
 import cors from "cors";
-import { run, docs_data } from "./supabase.js";
+import { run } from "./supabase.js";
 import { runBot } from "./chat.js";
 
 const app = express();
