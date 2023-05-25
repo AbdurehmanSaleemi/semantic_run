@@ -8,7 +8,7 @@ import { runPine } from "./run.js";
 const app = express();
 app.use(cors());
 app.use(express.json());
-const port = 3000 || process.env.PORT;
+const port = process.env.PORT || 3000
 
 //console.log(output);
 //const prompt = await runPine("Give me summary of the document");
