@@ -2,21 +2,26 @@ import express from "express";
 import cors from "cors";
 import { run } from "./supabase.js";
 import { runBot } from "./chat.js";
+import { runChain } from "./chain.js";
+import { runPine } from "./run.js";
 
 const app = express();
 app.use(cors());
 app.use(express.json());
-const port =  process.env.PORT || 3000;
+const port = 3000 || process.env.PORT;
 
 //console.log(output);
-//const prompt = await run();
+//const prompt = await runPine("Give me summary of the document");
 // if(prompt === 1){
 //     console.log("Training Completed");
-// } 
+// }
+
+//console.log(prompt);
 
 app.post("/fetch_result", (req, res) => {
     const { query } = req.body;
-    const result = run(query);
+    console.log(query);
+    const result = runPine(query);
     result.then((output) => {
         res.send(output);
     }
