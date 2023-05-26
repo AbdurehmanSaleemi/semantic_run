@@ -4,7 +4,6 @@ import { RecursiveCharacterTextSplitter } from "langchain/text_splitter";
 import * as fs from "fs";
 
 export const runChain = async () => {
-    // In this example, we use a `MapReduceDocumentsChain` specifically prompted to summarize a set of documents.
     const text = fs.readFileSync("pdfs/test.pdf", "utf8");
     const model = new OpenAI({ temperature: 0 });
     const textSplitter = new RecursiveCharacterTextSplitter({ chunkSize: 1000 });

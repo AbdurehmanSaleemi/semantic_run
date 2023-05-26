@@ -5,15 +5,16 @@ import { createClient } from "@supabase/supabase-js";
 import { PDFLoader } from "langchain/document_loaders/fs/pdf";
 import { Document } from "langchain/document";
 import { makeChain } from "./makechain.js";
+
 import { RecursiveCharacterTextSplitter } from "langchain/text_splitter";
 dotenv.config();
 
-//const loader = new PDFLoader("pdfs/test.pdf");
-//const docs = await loader.load();
+const loader = new PDFLoader("pdfs/test.pdf");
+const docs = await loader.load();
 
-//export const docs_data = () => {
-//    return docs;
-//}
+export const docs_data = () => {
+    return docs;
+}
 
 const privateKey = process.env.SUPABASE_PRIVATE_KEY;
 if (!privateKey) throw new Error(`Expected env var SUPABASE_PRIVATE_KEY`);
